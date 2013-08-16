@@ -16,7 +16,7 @@ Nedanstående plan kommer att kommuniceras till anslutna intressenter innan den 
 
   * Baserad på senaste versionen av SKLTP 2.3.0
   * Producentstöd för Engagemangsindex 1.0
-  * Stöd aggregerande tjänster (tidbokning, remisstatus, vårddokumentation, ...)
+  * Stöd för aggregerande tjänster (tidbokning, remisstatus, vårddokumentation, ...)
   * Förbättrad livscykelhantering av logginformation
   * Förbättrad övervakning och hantering av larm
   * Förbättrad prestanda
