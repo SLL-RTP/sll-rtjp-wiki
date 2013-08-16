@@ -1,0 +1,28 @@
+#summary Releaseplan.
+
+= Releaseplan =
+
+Regionala tjänsteplattformen baseras på öppen källkodprojektet [https://code.google.com/p/skltp SKLTP]
+
+Plan:
+
+Nedanstående plan ska kommuniceras till anslutna intressenter innan den slutligen fastställs.
+ 
+  * Vecka 38, 2013 - Ny QA miljö färdigställd för SLL-RTjP 1.1
+  * Vecka 40, 2013 - Gammal QA miljö stängs ned SLL-RTjP 1.0
+  * Vecka 43, 2013 - Uppgradering av produktionsmiljö SLL-RTjP 1.1
+
+= Nyheter i RTjP 1.1 =
+
+  * Baserad på senaste versionen av SKLTP 2.3.0
+  * Producentstöd för Engagemangsindex 1.0
+  * Stöd aggregerande tjänster (tidbokning, remisstatus, vårddokumentation, ...)
+  * Förbättrad livscykelhantering av logginformation
+  * Förbättrad övervakning och hantering av larm
+  * Förbättrad prestanda
+  * Stöd för "HTTP persistent, keep-alive connectons" uppkopplingar
+
+== Mer information ==
+
+  * [https://skl-tp.atlassian.net/wiki/display/SKLTP/skltp+Home SKLTP Wiki]
+  * [https://skl-tp.atlassian.net/browse/SKLTP SKLTP Jira]
