@@ -20,7 +20,7 @@ Nedanstående plan kommer att kommuniceras till anslutna intressenter innan den 
   * Förbättrad livscykelhantering av logginformation
   * Förbättrad övervakning och hantering av larm
   * Förbättrad prestanda
-  * Stöd för "HTTP persistent, keep-alive connectons" uppkopplingar
+  * Stöd för "HTTP persistent, keep-alive connectons"
 
 == Mer information ==
 
