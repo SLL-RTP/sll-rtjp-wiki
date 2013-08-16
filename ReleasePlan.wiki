@@ -6,7 +6,7 @@ Regionala tjänsteplattformen baseras på öppen källkodprojektet [https://code
 
 Plan:
 
-Nedanstående plan ska kommuniceras till anslutna intressenter innan den slutligen fastställs.
+Nedanstående plan kommer att kommuniceras till anslutna intressenter innan den slutligen fastställs.
  
   * Vecka 38, 2013 - Ny QA miljö färdigställd för SLL-RTjP 1.1
   * Vecka 40, 2013 - Gammal QA miljö stängs ned SLL-RTjP 1.0
