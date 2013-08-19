@@ -4,7 +4,7 @@
 
 Regionala tjänsteplattformen baseras på öppen källkodprojektet [https://code.google.com/p/skltp SKLTP]
 
-== RTjP 1.1 ==
+== RTjP 2.0 ==
 
 Nedanstående plan kommer att kommuniceras till anslutna intressenter innan den slutligen fastställs.
  
