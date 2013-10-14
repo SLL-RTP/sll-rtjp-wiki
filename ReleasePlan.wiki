@@ -20,5 +20,6 @@ Läs mer detaljer om  planen här: [https://skl-tp.atlassian.net/wiki/display/SL
 
 = Mer information =
 
+  * [https://skl-tp.atlassian.net/wiki/display/SLL/SLL+RTjP+Home SLL RTjP Wiki]
   * [https://skl-tp.atlassian.net/wiki/display/SKLTP/skltp+Home SKLTP Wiki]
   * [https://skl-tp.atlassian.net/browse/SKLTP SKLTP Jira]
