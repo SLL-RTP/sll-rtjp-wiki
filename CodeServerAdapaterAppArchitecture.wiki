@@ -27,7 +27,7 @@ The technology stack is based on
 
 Core uses an annotation driven approach, while the app component uses a more traditional spring (XML) based approach.
 
-The code structure divides between generic codeserver stuff, such as parsing of files etc and stuff that are specific for the payment responsible service. This means that adding a new service based on codeserver information should be pretty straight forward task both when it comes to development and deploy/maintain.
+The code structure divides between generic codeserver stuff, such as parsing of files etc and stuff that are specific for the payment responsible service. This means that adding a new service based on codeserver information should be a pretty straight forward task, both when it comes to development and deploy/maintain.
 
 === Logic for payment responsible service  ===
 
