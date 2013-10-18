@@ -28,8 +28,11 @@ Open a browser and navigate to:
 Create a local file named {{{.codeserveradapter-config.properties}}} in your home directory (don't omit the first dot ".").
 
 Add your own settings, like:
+
 #
+
 {{{pr.indexFile=/tmp/hsa-index-1.gz}}}
+
 {{{pr.ftp.cron = 0 0/5 * * * ?}}}
 
  
