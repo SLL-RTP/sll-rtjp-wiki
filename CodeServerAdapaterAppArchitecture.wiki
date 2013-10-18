@@ -60,7 +60,7 @@ After parsing XML files the created HSA mapping index is saved to a local file s
 
 Web Services Java interfaces are generated from WSDL files using Apache CXF and maven. Implementations are located in the the invoice-data-app module and Java package  {{{se.sll.codeserveradapter.paymentresponsible.ws}}}. 
 
-*Please note*: Web Service endpoints are specified using mule flow and the configuration parameters {{{pr.ws.inboundURL}}} specifies the complete endpoint path.
+*Please note*: Web Service endpoints are specified using mule flow and the configuration parameter {{{pr.ws.inboundURL}}} specifies the complete endpoint path.
 
 === Application Errors ===
 
