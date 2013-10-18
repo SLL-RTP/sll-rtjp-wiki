@@ -1,0 +1,69 @@
+#summary Component structure.
+
+Codeserver is a SLL master data service containing organizational and health care services data.  
+See [http://codeserver.sll.se/ http://codeserver.sll.se/].
+
+This adapter wraps codeserver information with RIV-TA  compliant Web Services, and is designed to be deployed in the SLL regional service platform (RTjP).
+
+== Main Components ==
+
+There are two main components:
+
+  * *codeserveradapter-core* - The core service layer (business logic) and information model layer
+  * *codeserveradapter-app* - The Mule application
+ 
+
+== Tech. Stack ==
+
+The technology stack is based on
+
+  * Java 1.6
+  * Spring Framework 3.1
+  * Apache CXF 2.5
+  * soitoolkit 0.6
+  * Mule 3.3  
+
+== Component Structure ==
+
+Core uses an annotation driven approach, while the app component uses a more traditional spring (XML) based approach.
+
+The code structure divides between generic codeserver stuff, such as parsing of files etc and stuff that are specific for the payment responsible service. This means that adding a new service based on codeserver information should be pretty straight forward task both when it comes to development and deploy/maintain.
+
+=== Logic for payment responsible service  ===
+
+Business logic belongs to the module  {{{codeserveradapter-core}}} and service interfaces are located in the package {{{se.sll.codeserveradapter.paymentresponsible.service}}}. This layer is primarily about to build an index to enable lookup of commissions and payment responsible.
+
+Also service implementations shall be annotated as {{{@Service}}}. WSDL files are also maintained in the core package, see {{{src/main/resources/payment-responsible-schemas}}}
+
+Integration logic is maintained by the mule application and the mule flow {{{src/main/app/ftp-scheduler-service.xml}}} handles fetching of files from the codeserver using FTP transport.
+The mule flow {{{src/main/app/payment-responsible-service.xml}}} handles Web Service request response pattern for the {{{ListPaymentResponsible}}} service.
+
+FTP transport is configured using the following properties:
+
+  * {{{pr.[commissionFile|commissionTypeFile|facilityFile|mekFile}}} the input XML file names
+  * {{{pr.ftp.localPath}}} the local path to store XML files in
+  * {{{pr.ftp.cron}}} the cron expression to schedule fetching of files
+  * {{{pr.ftp.user}}} user name
+  * {{{pr.ftp.localPath}}} password
+  * {{{pr.ftp.host}}} hostname
+  * {{{pr.ftp.port}}} remote TCP port
+  * {{{pr.ftp.remotePath}}} remote path
+  * {{{pr.ftp.timeout}}} timeout in millis
+  * {{{pr.ftp.filePattern}}} file pattern, wildcards included
+
+
+=== Persistence ===
+
+After parsing XML files the created HSA mapping index is saved to a local file specified by the configuration property {{{pr.indexFile}}}. On restart the service always reads the latest locally saved index file, and uses this until a scheduled rebuild is carried out. 
+
+=== Web Services (API) ===
+
+Web Services Java interfaces are generated from WSDL files using Apache CXF and maven. Implementations are located in the the invoice-data-app module and Java package  {{{se.sll.codeserveradapter.paymentresponsible.ws}}}. 
+
+*Please note*: Web Service endpoints are specified using mule flow and the configuration parameters {{{pr.ws.inboundURL}}} specifies the complete endpoint path.
+
+=== Application Errors ===
+
+The application returns SOAPFault on all technical server side errors. The only application error at this time is when a given HSA ID can't be found in the index, and then a normal response with response code in element {{{ResultCode}}} set to ERRROR is returned.
+  
+ 
