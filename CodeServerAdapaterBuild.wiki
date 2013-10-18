@@ -37,6 +37,6 @@ Add your own settings, like:
 
 In order to succeed with a build all source files must have an appropriate file header (see /LICENSE.txt), and there's a plugin to fix this automatically.
  
-from directory {{{<root of repository>}}} run
+from directory {{{codeserveradapter}}} run
 
 {{{$ mvn license:format}}}
