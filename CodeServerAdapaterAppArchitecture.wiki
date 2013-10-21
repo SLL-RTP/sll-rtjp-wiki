@@ -31,7 +31,7 @@ The code structure divides between generic codeserver stuff, such as parsing of 
 
 === Logic for payment responsible service  ===
 
-Business logic belongs to the module  {{{codeserveradapter-core}}} and service interfaces are located in the package {{{se.sll.codeserveradapter.paymentresponsible.service}}}. This layer is primarily about to build an index to enable lookup of commissions and payment responsible.
+Business logic belongs to the module  {{{codeserveradapter-core}}} and service interfaces are located in the package {{{se.sll.codeserveradapter.paymentresponsible.service}}}. This layer primarily is about to build an index to enable lookup of commissions and payment responsible.
 
 Also service implementations shall be annotated as {{{@Service}}}. WSDL files are also maintained in the core package, see {{{src/main/resources/payment-responsible-schemas}}}
 
