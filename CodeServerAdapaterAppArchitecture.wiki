@@ -64,6 +64,6 @@ Web Services Java interfaces are generated from WSDL files using Apache CXF and 
 
 === Application Errors ===
 
-The application returns SOAPFault on all technical server side errors. The only application error at this time is when a given HSA ID can't be found in the index, and then a normal response with response code in element {{{ResultCode}}} set to ERRROR is returned.
+The application returns SOAPFault on all technical server side errors. The only application error at this time is when a given HSA ID can't be found in the index, and then a normal response with response code in element {{{ResultCode}}} set to ERROR is returned.
   
  
