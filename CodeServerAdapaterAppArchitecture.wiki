@@ -46,7 +46,7 @@ The mule flow {{{src/main/app/payment-responsible-service.xml}}} handles Web Se
 
 FTP transport is configured using the following properties:
 
-  * {{{pr.[commissionFile|commissionTypeFile|facilityFile|mekFile|careServiceFile|companyFile}}} the input XML file names
+  * {{{pr.[commissionFile|commissionTypeFile|facilityFile|mekFile|careServiceFile|companyFile]}}} the input XML file names
   * {{{pr.ftp.localPath}}} the local path to store XML files in
   * {{{pr.ftp.cron}}} the cron expression to schedule fetching of files
   * {{{pr.ftp.localPath}}} password
