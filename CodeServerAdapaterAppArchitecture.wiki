@@ -7,19 +7,23 @@ This adapter wraps codeserver information with RIV-TA  compliant Web Services, a
 
 == Main Components ==
 
-There are two main components:
+There are four main modules:
 
   * *codeserveradapter-core* - The core service layer (business logic) and information model layer
-  * *codeserveradapter-app* - The Mule application
- 
+ * *codeserveradapter-schemas* -  RIV-TA Web Service definitions (contracts) in this service domain. RIV-TA applies the specification first pattern, i.e. the Java code is generated from WSDL, and the service domain is expected to be packaged according to a common convention.
+  * *codeserveradapter-app* - The Mule (ZIP) application packaging (experimental)
+  * *codeserveradapter-web* - The Web (WAR)  application packaging (currently used)
 
 == Tech. Stack ==
 
 The technology stack is based on
 
-  * Java 1.6
+  * Java 1.7
   * Spring Framework 3.1
   * Apache CXF 2.5
+
+And for the Mule app packaging:
+
   * soitoolkit 0.6
   * Mule 3.3  
 
@@ -29,28 +33,30 @@ Core uses an annotation driven approach, while the app component uses a more tra
 
 The code structure divides between generic codeserver stuff, such as parsing of files etc and stuff that are specific for the payment responsible service. This means that adding a new service based on codeserver information should be a pretty straight forward task, both when it comes to development and deploy/maintain.
 
-=== Logic for payment responsible service  ===
+=== Payment Responsible Service  ===
 
 Business logic belongs to the module  {{{codeserveradapter-core}}} and service interfaces are located in the package {{{se.sll.codeserveradapter.paymentresponsible.service}}}. This layer primarily is about to build an index to enable lookup of commissions and payment responsible.
 
 Also service implementations shall be annotated as {{{@Service}}}. WSDL files are also maintained in the core package, see {{{src/main/resources/payment-responsible-schemas}}}
+
+=== Mule Application ===
 
 Integration logic is maintained by the mule application and the mule flow {{{src/main/app/ftp-scheduler-service.xml}}} handles fetching of files from the codeserver using FTP transport.
 The mule flow {{{src/main/app/payment-responsible-service.xml}}} handles Web Service request response pattern for the {{{ListPaymentResponsible}}} service.
 
 FTP transport is configured using the following properties:
 
-  * {{{pr.[commissionFile|commissionTypeFile|facilityFile|mekFile}}} the input XML file names
+  * {{{pr.[commissionFile|commissionTypeFile|facilityFile|mekFile|careServiceFile|companyFile}}} the input XML file names
   * {{{pr.ftp.localPath}}} the local path to store XML files in
   * {{{pr.ftp.cron}}} the cron expression to schedule fetching of files
-  * {{{pr.ftp.user}}} user name
   * {{{pr.ftp.localPath}}} password
-  * {{{pr.ftp.host}}} hostname
-  * {{{pr.ftp.port}}} remote TCP port
   * {{{pr.ftp.remotePath}}} remote path
-  * {{{pr.ftp.timeout}}} timeout in millis
-  * {{{pr.ftp.filePattern}}} file pattern, wildcards included
+ 
+=== Web Application ===
 
+The Web application integration also runs a FTP Job (calls a script) which is scheduled as a  Spring task. The same configuration parameters as for the Mule app is used with just the addition of:
+
+  * {{{pr.script}}} The actual shell script to invoke to fetch FTP master data files 
 
 === Persistence ===
 
@@ -58,12 +64,23 @@ After parsing XML files the created HSA mapping index is saved to a local file s
 
 === Web Services (API) ===
 
-Web Services Java interfaces are generated from WSDL files using Apache CXF and maven. Implementations are located in the the invoice-data-app module and Java package  {{{se.sll.codeserveradapter.paymentresponsible.ws}}}. 
+Web Services Java interfaces are generated from WSDL files using Apache CXF and maven. Implementations are located in the the invoice-data-app module and Java package  {{{se.sll.codeserveradapter.paymentresponsible.ws}}}. Almost the same implementation is in the the Mule and Web application packaging. Currently the deviation is due to configuration discrepancies and more specifically Spring annotation driven configuration doesn't work the same in a Mule app as in a plain  Web  app.
 
 *Please note*: Web Service endpoints are specified using mule flow and the configuration parameter {{{pr.ws.inboundURL}}} specifies the complete endpoint path.
 
 === Application Errors ===
 
-The application returns SOAPFault on all technical server side errors. The only application error at this time is when a given HSA ID can't be found in the index, and then a normal response with response code in element {{{ResultCode}}} set to ERROR is returned.
+The application returns SOAPFault on all technical server side errors. The only application error at this time is when a given HSA ID can't be found in the index, and then a normal response with response code in element {{{ResultCode}}} set to NOTFOUND_ERROR is returned.
+
+=== Instrumentation ===
+  
+A JMX bean is used to instrument/monitor interfaces and perform health check operations. See package {{{se.sll.codeserveradapter.core.jmx}}}.
+
+The JMX bean in question is named {{{StatusBean}}}, and it's only activated in the Web application packaging.
+
+== Security ==
+
+At the time it's just about reading publicly available information, and therefore there's no need for any particular security mechanism. 
+
   
  
