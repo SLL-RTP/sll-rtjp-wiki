@@ -35,9 +35,9 @@ The code structure divides between generic codeserver stuff, such as parsing of 
 
 === Payment Responsible Service  ===
 
-Business logic belongs to the module  {{{codeserveradapter-core}}} and service interfaces are located in the package {{{se.sll.codeserveradapter.paymentresponsible.service}}}. This layer primarily is about to build an index to enable lookup of commissions and payment responsible.
+Business logic belongs to the module  {{{codeserveradapter-core}}} and service interfaces are located in the package {{{se.sll.codeserveradapter.paymentresponsible.service}}}. This layer primarily is about to build an index to enable lookup of commissions and payment responsible. Payment responsible is a company and the codeserver id is mapped to either HSF or TioHundra, see configuration parameters {{{pr.hsfCodes}}} and {{{pr.tioHundraCodes}}}
 
-Also service implementations shall be annotated as {{{@Service}}}. WSDL files are also maintained in the core package, see {{{src/main/resources/payment-responsible-schemas}}}
+Service implementations shall be annotated as {{{@Service}}}. 
 
 === Mule Application ===
 
