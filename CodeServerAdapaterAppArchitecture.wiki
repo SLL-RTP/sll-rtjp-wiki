@@ -11,8 +11,8 @@ There are four main modules:
 
   * *codeserveradapter-core* - The core service layer (business logic) and information model layer
   * *codeserveradapter-schemas* -  RIV-TA Web Service definitions (contracts) in this service domain. RIV-TA applies the specification first pattern, i.e. the Java code is generated from WSDL, and the service domain is expected to be packaged according to a common convention.
- * *codeserveradapter-mule-app* - The Mule (ZIP) application packaging (experimental)
- * *codeserveradapter-web-app* - The Web (WAR)  application packaging (currently used)
+  * *codeserveradapter-mule-app* - The Mule (ZIP) application packaging (experimental)
+  * *codeserveradapter-web-app* - The Web (WAR)  application packaging (currently used)
 
 == Tech. Stack ==
 
