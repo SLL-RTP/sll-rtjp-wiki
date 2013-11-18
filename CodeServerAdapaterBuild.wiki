@@ -17,11 +17,11 @@ from codeserveradapter/codeserveradapter-app
 
 {{{$ mvn -PmuleServer}}}
 
-== Get WSDL for Web Service {{{ListPaymentResponsible}}} ==
+== List Services {{{ListPaymentResponsible}}} ==
 
 Open a browser and navigate to:
 
-{{{http://localhost:20000/codeserveradapter/services/payment-responsible/v1?wsdl}}}
+{{{http://localhost:8080/codeserveradapter-web-app}}}
 
 == Override configuration parameters ==
 
