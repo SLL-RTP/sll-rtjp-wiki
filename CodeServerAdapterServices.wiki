@@ -4,7 +4,7 @@
 
 Public Services are following the national health care standard RIV-TA, which basically is standard SOAP Web Services.  For more details regarding public Web Services please read the service contract description [https://code.google.com/p/sll-rtjp/source/browse/codeserveradapter/docs/Tjanstekontraktsbeskrivning%20sll_paymentresponsible.docx?repo=adapter-services Swedish].  
 
-There also exist one internal RESTful services to trigger an index revalidation, i.e. current state of master data is used to build a new index.
+There also exist one internal RESTful service to trigger index revalidation, i.e. current state of master data is used to build a new index.
 
 == Public Web Services ==
 
