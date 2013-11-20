@@ -1,0 +1,23 @@
+#summary Tunable configuration settings.
+
+= Configuration Properties =
+
+On start the Web application reads configuration data from the user home directory, i.e. the user executing the application. The stander spring context instruction {{{context:property-placeholder}}} is used to load the file:
+{{{${user.home}/.codeserveradapter-config.properties}}}
+
+Spring profiles are not used, the different configuration settings are just for automatic unit tests when building.
+Most of the parameters have default values, se further below for a description of all properties. 
+
+|| *Property name*  || *Description* || *Type* || *Default Prod Value* || *Default Test Value* ||
+|| pr.commissionFile || Master data file  || String (Filename) || {{{SAMVERKS-REL.xml}}} || {{{SAMVERKS-REL.xml}}} ||
+|| pr.commissionTypeFile || Master data file  || String (Filename) || {{{UPPDRAGSTYP.xml}}} || {{{UPPDRAGSTYP.xml}}} ||
+|| pr.facilityFile || Master data file || String (Filename) || {{{AVD-REL.xml}}} || {{{AVD-REL-test.xml}}} ||
+|| pr.companyFile || Master data file  || String (Filename) || {{{FORETAG.xml}}} || {{{FORETAG.xml}}} ||
+|| pr.careServiceFile || Master data file  || String (Filename) || {{{Vardservice.xml}}} || {{{Vardservice.xml}}} ||
+|| pr.mekFile || Master data file  || String (Filename) || {{{MEK.xml}}} || {{{MEK-test.xml}}} ||
+|| pr.hsfCodes || Company mapping of ids to {{{HSF}}} symbol  || List of Strings (comma separated) || {{{1300}}} || {{{1300}}} ||
+|| pr.tioHundraCodes || Company mapping of ids (code in master-data) to {{{TioHundra}}} symbol  || List of Strings (comma separated) || {{{8590}}} || {{{8590}}} ||
+|| pr.indexFile || File name for local copy of index mapping file. || String (Filename) || {{{Not Set}}  || {{{/tmp/hsa-index-1.gz}}} ||
+|| pr.ftp.cron || Schedule job for fetching master data. || Cron expression || {{{0 0 * * * ?}}} || {{{0 0/1 * * * ?}}} ||
+|| pr.ftp.script || Job script file to fetch master-data  || Shell script file|| {{{""}}} || {{{""}}} ||
+|| pr.ftp.localPath || Local path to execute script in (current working directory) and read master-data files from  || String (Directory name) || {{{""}}} || {{{src/test/resources/test-files}}} ||
