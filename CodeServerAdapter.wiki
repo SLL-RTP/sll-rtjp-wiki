@@ -1,4 +1,4 @@
-= Code-server Adapter =
+= Code Server Adapter =
 
 An information service returning commissions and associated payment responsible given a specific care unit (HSA-ID) and care service type. 
 
