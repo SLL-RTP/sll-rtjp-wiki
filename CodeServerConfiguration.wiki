@@ -15,9 +15,9 @@ Most of the parameters have default values, se further below for a description o
 || pr.companyFile || Master data file  || String (Filename) || {{{FORETAG.xml}}} || {{{FORETAG.xml}}} ||
 || pr.careServiceFile || Master data file  || String (Filename) || {{{Vardservice.xml}}} || {{{Vardservice.xml}}} ||
 || pr.mekFile || Master data file  || String (Filename) || {{{MEK.xml}}} || {{{MEK-test.xml}}} ||
-|| pr.hsfCodes || Company mapping of ids to {{{HSF}}} symbol  || List of Strings (comma separated) || {{{1300}}} || {{{1300}}} ||
+|| pr.hsfCodes || Company mapping of ids (code in master-data) to {{{HSF}}} symbol  || List of Strings (comma separated) || {{{1300}}} || {{{1300}}} ||
 || pr.tioHundraCodes || Company mapping of ids (code in master-data) to {{{TioHundra}}} symbol  || List of Strings (comma separated) || {{{8590}}} || {{{8590}}} ||
 || pr.indexFile || File name for local copy of index mapping file. || String (Filename) || {{{/tmp/hsa-index.gz}}}  || {{{/tmp/hsa-index.gz}}} ||
 || pr.ftp.cron || Schedule job for fetching master data. || Cron expression || {{{0 0 * * * ?}}} || {{{0 0/1 * * * ?}}} ||
-|| pr.ftp.script || Job script file to fetch master-data  || Shell script file|| {{{""}}} || {{{""}}} ||
+|| pr.ftp.script || Job script file to fetch master-data according to the schedule defined in {{{pr.ftp.cron}}} || Shell script file|| {{{""}}} || {{{""}}} ||
 || pr.ftp.localPath || Local path to execute script in (current working directory) and read master-data files from  || String (Directory name) || {{{""}}} || {{{src/test/resources/test-files}}} ||
