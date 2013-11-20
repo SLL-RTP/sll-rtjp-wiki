@@ -1,0 +1,33 @@
+#summary Provided services.
+
+= Introduction =
+
+Public Services are following the national health care standard RIV-TA, which basically is standard SOAP Web Services.  For more details regarding public Web Services please read the service contract description [https://code.google.com/p/sll-rtjp/source/browse/codeserveradapter/docs/Tjanstekontraktsbeskrivning%20sll_paymentresponsible.docx?repo=adapter-services Swedish].  
+
+There also exist one internal RESTful services to trigger an index revalidation, i.e. current state of master data is used to build a new index.
+
+== Public Web Services ==
+
+The path indicated below is from the application base URL and forward, out-of-the-box the application URI is {{{/codeserveradapter-web-app}}}
+
+|| *Name* || *Path* || *Description* ||
+|| {{{ListPaymentResponsible}}}  || {{{/ws/listPaymentResponsible/v1}}} || Given a care unit HSA-ID valid commissions and payment responsible are returned  ||
+
+== Internal RESTful Services ==
+
+|| *Name* || *Path* || *Description* ||
+|| {{{Revalidate Index}}} || /admin/revalidate-index || GET, returns HTTP 200 on successful completion. Depending on index size it might take some half minute or so ||
+
+== JMX Services ==
+
+One JMX Bean exists:
+
+  * {{{se.sll.codeserveradpater.StatusBean}}}
+ 
+The {{{StatusBean}}}  instruments main interfaces and different database operations. typical samples are number of requests, execution times, errors etc for a given history of requests (default is the last 1000).
+
+It also contains a {{{healthCheck}}} operation which tests connectivity, memory allocation and logging features.
+
+
+
+ 
