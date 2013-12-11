@@ -1,0 +1,8 @@
+#summary Configuration by xml file
+
+= Details =
+
+Configuration file is located under /tomcat/sll-invoice-data/log4j.xml
+
+Configuration levels are described here:
+http://publib.boulder.ibm.com/infocenter/wbevents/v6r2m0/index.jsp?topic=%2Fcom.ibm.wbe.uihelp.doc%2Fdoc%2Flog4jlogginglevels.html
