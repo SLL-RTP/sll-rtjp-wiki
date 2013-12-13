@@ -21,3 +21,10 @@ Most of the parameters have default values, se further below for a description o
 || pr.ftp.cron || Schedule job for fetching master data. || Cron expression || {{{0 0 * * * ?}}} || {{{0 0/1 * * * ?}}} ||
 || pr.ftp.script || Job script file to fetch master-data according to the schedule defined in {{{pr.ftp.cron}}} || Shell script file|| {{{""}}} || {{{""}}} ||
 || pr.ftp.localPath || Local path to execute script in (current working directory) and read master-data files from  || String (Directory name) || {{{""}}} || {{{src/test/resources/test-files}}} ||
+
+
+=== Log Level ===
+
+Configuration file is located under {{{${user.home}/sll-invoice-data/log4j.xml}}}
+
+Configuration levels are described [http://publib.boulder.ibm.com/infocenter/wbevents/v6r2m0/index.jsp?topic=%2Fcom.ibm.wbe.uihelp.doc%2Fdoc%2Flog4jlogginglevels.html here].
