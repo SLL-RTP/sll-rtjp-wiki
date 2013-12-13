@@ -10,4 +10,4 @@ http://nvie.com/posts/a-successful-git-branching-model/
 
 When trying to do a immediate fix for a bug in production then from the master branch the particular release can be checked out and a new branch can be created. On successful test a release is once again made. And a manual merge could be done back to develop.
 
-Note: When making a release it is necessary to state the same version id as develop branch when questioned by the JGit plugin (x.x-SNAPSHOT). This is to avoid conflicts when merging back to develop. 
+_Note: When making a release it is necessary to state the same version id as develop branch when questioned by the JGit plugin (x.x-SNAPSHOT). This is to avoid conflicts when merging back to develop. _
